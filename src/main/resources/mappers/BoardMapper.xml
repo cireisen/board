@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.work.board.board.repository.BoardMapper">
+
+    <select id="findAll" parameterType="com.work.board.board.domain.Board" resultType="com.work.board.board.domain.Board">
+        select * from board
+    </select>
+    <insert id="save" parameterType="com.work.board.board.domain.Board">
+        insert into board(author, title, main) values(#{author},#{title},#{main})
+    </insert>
+    <select id="findById" parameterType="com.work.board.board.domain.Board" resultType="com.work.board.board.domain.Board">
+        select id from board where id = #{id}
+    </select>
+</mapper>

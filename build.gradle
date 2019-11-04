@@ -1,0 +1,42 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.0.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+    id 'war'
+}
+
+group = 'com.work'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.apache.tomcat', name: 'tomcat-jasper', version: '9.0.27'
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+
+    compile group: 'org.apache.tomcat', name: 'tomcat-jdbc', version: '9.0.2'
+    providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
+    compile group: 'org.springframework.data', name: 'spring-data-commons-core', version: '1.4.1.RELEASE'
+    compile ('org.springframework.boot:spring-boot-starter-jdbc')
+    compile ('org.springframework.boot:spring-boot-starter-web')
+    compile ('org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1')
+    developmentOnly ('org.springframework.boot:spring-boot-devtools')
+    compile( 'mysql:mysql-connector-java')
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
