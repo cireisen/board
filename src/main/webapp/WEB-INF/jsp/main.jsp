@@ -57,7 +57,7 @@
             <c:forEach items="${list}" var="data" varStatus="status">
 
                 <c:if test="${status.count==2}">
-                        <td><a href="/response&$id=${list[0]}" > ${data} </a></td>
+                        <td><a href="/boards/${list[0]}" > ${data} </a></td>
                 </c:if>
 
                 <c:if test="${status.count!=2}">

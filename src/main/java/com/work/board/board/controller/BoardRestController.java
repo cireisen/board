@@ -36,16 +36,15 @@ public class BoardRestController {
         mav.addObject("user",dto.getId());
         return mav;
     }
-    @GetMapping("/{id}")
+    @GetMapping("/boards/{id}")
     public ModelAndView display(@PathVariable("id")String id) throws Exception
     {
         System.out.println("display 2");
         ModelAndView mav= new ModelAndView("display");
         System.out.println("display 1");
         List<String> list = new ArrayList<String>();
-        String[] data = id.split("=");
-        Board index = service.findById(Integer.parseInt(data[1]));
-        System.out.println(data[1]);
+        Board index = service.findById(Integer.parseInt(id));
+        System.out.println(id);
         list.add(index.getAuthor());
 
         list.add(index.getTitle());

@@ -16,7 +16,7 @@ public class BoardController {
     @Autowired
     private BoardService services;
 
-    @RequestMapping("/main")
+    @RequestMapping("/boards")
     public ModelAndView loadboard() throws Exception {
         ModelAndView mav= new ModelAndView("main");
 
