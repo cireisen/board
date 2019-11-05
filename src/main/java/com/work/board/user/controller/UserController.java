@@ -41,6 +41,11 @@ public class UserController {   // 얘는 이제 웹에 보여주는 행동을 �
         mav.addObject("value",sendData);
         return mav;
     }
+    @RequestMapping(value="/login")
+    public String loginview() throws Exception
+    {
+        return "login";
+    }
     @RequestMapping(value="/register")
     public String register() throws Exception
     {

@@ -72,5 +72,21 @@ public class UserRestController {   //데이터만 다루는 REST controller
         System.out.println(dto.getName());
         return mav;
     }
+    @RequestMapping(value="/user",method=RequestMethod.POST)
+    public ModelAndView login(RegisterDTO dto) throws Exception
+    {
+        ModelAndView mav = new ModelAndView("redirect");
+        if(service.findById(dto.getId()) == null)
+        {
+            mav.addObject("done",false);
+        }
+        else
+        {
+            mav.addObject("done",true);
+        }
+        mav.addObject("data","로그인");
+        mav.addObject("user",dto.getId());
+        return mav;
+    }
 
 }

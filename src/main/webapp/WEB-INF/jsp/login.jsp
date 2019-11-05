@@ -11,6 +11,12 @@
     <title>Login</title>
 </head>
 <body>
-
+<form method="post" action="/user">
+    <br>
+    제목:<input type="text" name="id"/><br>
+    내용:<input type="password" name="password" /><br>
+    <input type="submit" value="확인"/><br>
+    <input type="reset" value="취소"/><br>
+</form>
 </body>
 </html>

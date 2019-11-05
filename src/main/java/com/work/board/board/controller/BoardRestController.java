@@ -39,21 +39,13 @@ public class BoardRestController {
     @GetMapping("/boards/{id}")
     public ModelAndView display(@PathVariable("id")String id) throws Exception
     {
-        System.out.println("display 2");
         ModelAndView mav= new ModelAndView("display");
-        System.out.println("display 1");
-        List<String> list = new ArrayList<String>();
         Board index = service.findById(Integer.parseInt(id));
-        System.out.println(id);
-        list.add(index.getAuthor());
+        index.setAuthor(index.getAuthor());
 
-        list.add(index.getTitle());
+        index.setTitle(index.getTitle());
 
-        list.add(index.getMain());
-        System.out.println(list);
-        index.setAuthor("글쓴이");
-        index.setMain("냉용");
-        index.setTitle("제에목");
+        index.setMain(index.getMain());
         mav.addObject("board",index);
         return mav;
     }
