@@ -51,4 +51,32 @@ public class BoardRestController {
         mav.addObject("board",index);
         return mav;
     }
+    @GetMapping(value="/delete/{id}")
+    public ModelAndView delete(@PathVariable("id")String id) throws Exception
+    {
+        ModelAndView mav = new ModelAndView("redirect");
+        System.out.println(id);
+        String[] getdata = id.split("&");
+        String name = getdata[0];
+        int num = Integer.parseInt(getdata[1]);
+        if(name.equals(service.findById(num).getAuthor()))
+        {
+            System.out.println("if문 들어옴");
+            if (service.deleteById(Integer.parseInt(getdata[1])))
+            {
+                mav.addObject("done", true);
+            } else {
+                mav.addObject("done", false);
+            }
+        }
+        else
+        {
+            mav.addObject("done",false);
+        }
+        mav.addObject("data","게시판 삭제");
+        mav.addObject("user",null);
+
+
+        return mav;
+    }
 }

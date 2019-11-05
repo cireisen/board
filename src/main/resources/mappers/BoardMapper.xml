@@ -13,4 +13,7 @@
     <select id="findById" parameterType="com.work.board.board.domain.Board" resultType="com.work.board.board.domain.Board">
         select * from board where id = #{id}
     </select>
+    <delete id="deleteById" parameterType="com.work.board.board.domain.Board">
+        delete FROM board where id = #{id}
+    </delete>
 </mapper>

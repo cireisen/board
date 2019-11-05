@@ -39,4 +39,9 @@ public class BoardService {
     {
         return boardmapper.findById(id);
     }
+    public boolean deleteById(int id) throws Exception
+    {
+        boardmapper.deleteById(id);
+        return true;
+    }
 }

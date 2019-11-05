@@ -9,4 +9,5 @@ public interface BoardMapper {
     public List<Board> findAll() throws Exception;
     public void save(Board board) throws Exception;
     public Board findById(int id) throws Exception;
+    public void deleteById(int id) throws Exception;
 }

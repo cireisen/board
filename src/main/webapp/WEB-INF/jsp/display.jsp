@@ -9,13 +9,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <%
-    /*
+
     String username = null;
 
     Cookie[] cookies = request.getCookies();
     for(int i = 0;i<cookies.length;i++)
     {
-        if(cookies[i].getName() == "user")
+        if(cookies[i].getName().equals("user"))
         {
            username = cookies[i].getValue();
         }
@@ -24,20 +24,20 @@
     {
         response.sendRedirect("login");
     }
-    */
+
 
 %>
 <%
     System.out.println(request.getMethod());
 %>
 <head>
-    <title>와!샌즈!</title>
+    <title>${board.getTitle()}</title>
 </head>
 <body>
+<a href="/delete/<%=username%>&${board.getId()}")>글 삭제</a><br>
 글쓴이 : ${board.getAuthor()}<br>
 제목 : ${board.getTitle()}<br>
 내용 : ${board.getMain()}<br>
-
 
 </body>
 </html>
