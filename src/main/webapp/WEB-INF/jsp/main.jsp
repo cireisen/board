@@ -16,20 +16,23 @@
 <a href="/upload"> 글쓰기 </a>
 
 <%
-    /*
-    String user;
+
+    String user = null;
     Cookie[] cookies = request.getCookies();
-    if(cookies.length == 0)
+
+    for(int i =0;i<cookies.length;i++)
+    {
+        System.out.println(cookies[i].getName());
+        if (cookies[i].getName().equals("user"))
+        {
+
+            user = cookies[i].getValue();
+        }
+    }
+    if(user == null)
     {
         response.sendRedirect("login");
     }
-    for(int i =0;i<cookies.length;i++)
-    {
-        if(cookies[i].getName()=="user")
-        {
-            user = cookies[i].getValue();
-        }
-    }*/
 %>
 <script type="text/javascript">
     function goPage(data)

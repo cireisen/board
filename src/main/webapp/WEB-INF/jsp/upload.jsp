@@ -8,14 +8,33 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>글쓰기</title>
+    <%
+        String user = null;
+        Cookie[] cookies = request.getCookies();
+        for(int i =0;i<cookies.length;i++)
+        {
+            if(cookies[i].getName().equals("user"))
+            {
+                user = cookies[i].getValue();
+            }
+        }
+
+        if(user == null)
+        {
+
+            response.sendRedirect("login");
+        }
+    %>
 </head>
 <body>
 <h2>글쓰기</h2>
-<form method="post" action="/upload">
+<form method="post" action="/update">
     <br>
-    제목:<input type="text" name="name"/><br>
-    내용:<input type="text" name="id" /><br>
+    작성자:<input type="text" name ="author" readonly="readonly" value=<%=user%> /><br>
+    제목:<input type="text" name="title"/><br>
+    내용:<input type="text" name="main" /><br>
+
     <input type="submit" value="확인"/><br>
     <input type="reset" value="취소"/><br>
 </form>

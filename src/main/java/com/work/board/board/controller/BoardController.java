@@ -16,6 +16,11 @@ public class BoardController {
     @Autowired
     private BoardService services;
 
+    @RequestMapping("/upload")
+    public String upload() throws Exception
+    {
+        return "upload";
+    }
     @RequestMapping("/boards")
     public ModelAndView loadboard() throws Exception {
         ModelAndView mav= new ModelAndView("main");

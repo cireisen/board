@@ -11,6 +11,6 @@
         insert into user(id, password, name, email) values(#{id},#{password},#{name},#{email})
     </insert>
     <select id="findById" parameterType="com.work.board.user.domain.User" resultType="com.work.board.user.domain.User">
-            select id from user where id = #{id}
+            select * from user where id = #{id}
     </select>
 </mapper>

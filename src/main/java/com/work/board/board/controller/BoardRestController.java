@@ -19,7 +19,7 @@ public class BoardRestController {
     @Autowired
     private BoardService service;
 
-    @RequestMapping(value="/upload",method= RequestMethod.POST)
+    @RequestMapping(value="/update",method= RequestMethod.POST)
     public ModelAndView upload(BoardDTO dto) throws Exception
     {
         ModelAndView mav= new ModelAndView("redirect");
@@ -33,19 +33,21 @@ public class BoardRestController {
             mav.addObject("done",true);
         }
         mav.addObject("data","업로드");
-        mav.addObject("user",dto.getId());
+        mav.addObject("user",String.valueOf(dto.getId()));
         return mav;
     }
-    @GetMapping("/boards/{id}")
+    @GetMapping(value="/boards/{id}")
     public ModelAndView display(@PathVariable("id")String id) throws Exception
     {
         ModelAndView mav= new ModelAndView("display");
+        System.out.println(Integer.parseInt(id));
         Board index = service.findById(Integer.parseInt(id));
         index.setAuthor(index.getAuthor());
 
         index.setTitle(index.getTitle());
 
         index.setMain(index.getMain());
+        System.out.println("이씨발"+index.getMain());
         mav.addObject("board",index);
         return mav;
     }

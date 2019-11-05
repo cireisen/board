@@ -11,6 +11,6 @@
         insert into board(author, title, main) values(#{author},#{title},#{main})
     </insert>
     <select id="findById" parameterType="com.work.board.board.domain.Board" resultType="com.work.board.board.domain.Board">
-        select id from board where id = #{id}
+        select * from board where id = #{id}
     </select>
 </mapper>

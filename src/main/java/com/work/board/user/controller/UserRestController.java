@@ -85,6 +85,7 @@ public class UserRestController {   //데이터만 다루는 REST controller
             mav.addObject("done",true);
         }
         mav.addObject("data","로그인");
+        System.out.println(dto.getId());
         mav.addObject("user",dto.getId());
         return mav;
     }

@@ -9,28 +9,35 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-
+    <meta charset="UTF-8"/>
 </head>
 <body>
 <script type="text/javascript">
     function goBack()
     {
-        window.history.go(-2);
+        window.history.go(-1);
     }
 </script>
+${user}
+${data}
 <c:if test="${done == true}">
-<%
-    String user = (String)session.getAttribute("user");
-    Cookie login = new Cookie("user",user);
-    login.setPath("/");
-    String data = (String)session.getAttribute("data");
-    if(data == "회원가입" || data == "로그인") {
+    <c:set var="user" value="${user}"></c:set>
+        <c:set var="data" value="${data}"></c:set>
+        <%
+            request.setCharacterEncoding("UTF-8");
+            String user = (String)pageContext.getAttribute("user");
+            System.out.println(user);
+            Cookie login = new Cookie("user",user);
+            String data = (String)pageContext.getAttribute("data");
 
-        response.addCookie(login);
-    }
-    response.sendRedirect("main");
+            System.out.println(data);
+            if(data == "회원가입" || data == "로그인") {
+                response.addCookie(login);
+            }
+            response.sendRedirect("boards");
 
-%>
+        %>
+
 </c:if>
 <c:if test="${done == false}">
 
