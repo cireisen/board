@@ -34,9 +34,9 @@
     <title>와!샌즈!</title>
 </head>
 <body>
-글쓴이 : ${value[0]}<br>
-제목 : ${value[1]}<br>
-내용 : ${value[2]}<br>
+글쓴이 : ${board.getAuthor()}<br>
+제목 : ${board.getTitle()}<br>
+내용 : ${board.getMain()}<br>
 
 
 </body>

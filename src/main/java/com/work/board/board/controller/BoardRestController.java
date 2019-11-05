@@ -51,7 +51,10 @@ public class BoardRestController {
 
         list.add(index.getMain());
         System.out.println(list);
-        mav.addObject("value",list);
+        index.setAuthor("글쓴이");
+        index.setMain("냉용");
+        index.setTitle("제에목");
+        mav.addObject("board",index);
         return mav;
     }
 }
