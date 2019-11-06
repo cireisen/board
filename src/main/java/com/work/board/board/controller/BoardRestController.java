@@ -42,12 +42,6 @@ public class BoardRestController {
         ModelAndView mav= new ModelAndView("display");
         System.out.println(Integer.parseInt(id));
         Board index = service.findById(Integer.parseInt(id));
-        index.setAuthor(index.getAuthor());
-
-        index.setTitle(index.getTitle());
-
-        index.setMain(index.getMain());
-        System.out.println("이씨발"+index.getMain());
         mav.addObject("board",index);
         return mav;
     }
@@ -61,7 +55,6 @@ public class BoardRestController {
         int num = Integer.parseInt(getdata[1]);
         if(name.equals(service.findById(num).getAuthor()))
         {
-            System.out.println("if문 들어옴");
             if (service.deleteById(Integer.parseInt(getdata[1])))
             {
                 mav.addObject("done", true);
