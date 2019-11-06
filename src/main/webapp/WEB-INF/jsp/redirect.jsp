@@ -26,11 +26,8 @@ ${data}
         <%
             request.setCharacterEncoding("UTF-8");
             String user = (String)pageContext.getAttribute("user");
-            System.out.println(user);
             Cookie login = new Cookie("user",user);
             String data = (String)pageContext.getAttribute("data");
-
-            System.out.println(data);
             if(data == "회원가입" || data == "로그인") {
                 response.addCookie(login);
             }
