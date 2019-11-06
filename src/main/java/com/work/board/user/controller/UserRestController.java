@@ -47,9 +47,6 @@ public class UserRestController {   //데이터만 다루는 REST controller
         }
         mav.addObject("data","회원가입");
         mav.addObject("user",dto.getId());
-        //요래하면 될거같아요
-
-        System.out.println(dto.getName());
         return mav;
     }
     @RequestMapping(value="/user",method=RequestMethod.POST)
