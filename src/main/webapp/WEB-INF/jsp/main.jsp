@@ -45,6 +45,9 @@
 </script>
 <br>
 <table border="1">
+    <%
+        int number = 1;
+    %>
     <thead>
     <tr>
         <th>번호</th>
@@ -57,21 +60,24 @@
         <tr>
 
             <c:forEach items="${list}" var="data" varStatus="status">
-
+                <c:if test="${status.count==1}">
+                    <td><%=number%></td>
+                </c:if>
                 <c:if test="${status.count==2}">
                         <td><a href="/boards/${list[0]}" > ${data} </a></td>
                 </c:if>
 
-                <c:if test="${status.count!=2}">
+                <c:if test="${status.count==3}">
                     <td>${data}</td>
                 </c:if>
 
             </c:forEach>
-
+            <%
+                number++;
+            %>
         </tr>
     </c:forEach>
     </tbody>
-</table>
-<a href="/hreftest"> hyperlink </a>
+</table>\
 </body>
 </html>
