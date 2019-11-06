@@ -32,7 +32,7 @@
 <form method="post" action="/update">
     <br>
     작성자:<input type="text" name ="author" readonly="readonly" value=<%=user%> /><br>
-    제목:<input type="text" name="title"/><br>
+    제목:<input type= name="title" size = 10/><br>
     내용:<input type="text" name="main" /><br>
 
     <input type="submit" value="확인"/><br>
