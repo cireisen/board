@@ -23,7 +23,6 @@ public class BoardService {
     public Board uploadBoard(BoardDTO dto) throws Exception
     {
         Board board = findById(dto.getId());
-        System.out.println(dto.getAuthor());
 
         if(board!=null)
         {

@@ -27,9 +27,6 @@
 
 
 %>
-<%
-    System.out.println(request.getMethod());
-%>
 <head>
     <title>${board.getTitle()}</title>
 </head>

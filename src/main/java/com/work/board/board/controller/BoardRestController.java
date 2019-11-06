@@ -40,7 +40,6 @@ public class BoardRestController {
     public ModelAndView display(@PathVariable("id")String id) throws Exception
     {
         ModelAndView mav= new ModelAndView("display");
-        System.out.println(Integer.parseInt(id));
         Board index = service.findById(Integer.parseInt(id));
         mav.addObject("board",index);
         return mav;
@@ -49,9 +48,9 @@ public class BoardRestController {
     public ModelAndView delete(@PathVariable("id")String id) throws Exception
     {
         ModelAndView mav = new ModelAndView("redirect");
-        System.out.println(id);
         String[] getdata = id.split("&");
         String name = getdata[0];
+
         int num = Integer.parseInt(getdata[1]);
         if(name.equals(service.findById(num).getAuthor()))
         {

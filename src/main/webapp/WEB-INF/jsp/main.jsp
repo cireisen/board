@@ -22,7 +22,6 @@
 
     for(int i =0;i<cookies.length;i++)
     {
-        System.out.println(cookies[i].getName());
         if (cookies[i].getName().equals("user"))
         {
 

@@ -11,6 +11,7 @@
     <title>Login</title>
 </head>
 <body>
+<a href="/register">회원가입</a><br>
 <form method="post" action="/user">
     <br>
     아이디:<input type="text" name="id"/><br>

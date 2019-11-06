@@ -31,7 +31,7 @@ ${data}
             if(data == "회원가입" || data == "로그인") {
                 response.addCookie(login);
             }
-            response.sendRedirect("boards");
+            response.sendRedirect("/boards");
 
         %>
 
